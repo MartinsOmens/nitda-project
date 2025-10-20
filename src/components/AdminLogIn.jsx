@@ -1,11 +1,9 @@
-
 import { useState } from "react";
 import { assets } from "../assets/assets";
 import NavBar from "./NavBar";
 
 export default function AdminLogIn() {
-
-  const [role, setRole] = useState("admin")
+  const [role, setRole] = useState("admin");
 
   return (
     <>
@@ -14,56 +12,55 @@ export default function AdminLogIn() {
 
       {/* Fullscreen Container */}
       <div className="h-screen bg-[#F9FAFB] flex items-center justify-center px-4 overflow-hidden">
-        <div className="flex flex-col gap-5 w-full max-w-md sm:max-w-lg md:max-w-md"> 
-
-        {/* Back Navigation */}
-         <button className="flex items-center gap-2  duration-300 group">
-          <img
-            src={assets.arrow_left}
-            alt="Back"
-            className="w-6 transition-transform duration-300 group-hover:-translate-x-1"
-          />
-          <p className="text-gray-700 text-lg font-medium transition-colors duration-300 group-hover:text-black">
-            Back to Events
-          </p>
+        <div className="flex flex-col gap-5 w-full max-w-md sm:max-w-lg md:max-w-md">
+          {/* Back Navigation */}
+          <button className="flex items-center gap-2  duration-300 group">
+            <img
+              src={assets.arrow_left}
+              alt="Back"
+              className="w-6 transition-transform duration-300 group-hover:-translate-x-1"
+            />
+            <p className="text-gray-700 text-lg font-medium transition-colors duration-300 group-hover:text-black">
+              Back to Events
+            </p>
           </button>
 
           {/* Login Card */}
           <div className="bg-white p-6 sm:p-8 rounded-lg border border-gray-300 shadow-lg">
-            
             {/* Header */}
             <div className="text-center mb-4">
               <h2 className="text-xl sm:text-2xl font-semibold mb-3">Login</h2>
               <p className="text-gray-500 text-sm sm:text-base">
-                Sign in to access the {role === "admin" ? "Admin" : "Sub-Admin"} dashboard
+                Sign in to access the {role === "admin" ? "Admin" : "Sub-Admin"}{" "}
+                dashboard
               </p>
             </div>
 
             {/* Role Selector */}
             <div className="w-full flex items-center justify-between gap-3 sm:gap-8 rounded-full px-2 sm:px-3 py-1.5 bg-gray-200 mt-5">
-
               <div
-              onClick={() => setRole("admin")}
-               className = {`flex items-center gap-2 px-4 sm:px-6 py-1.5 rounded-full cursor-pointer transition ${
-                role === "admin" 
-                ? "bg-white text-black shadow"
-                : "bg-transparent text-gray-700"
-               }`}>
+                onClick={() => setRole("admin")}
+                className={`flex items-center gap-2 px-4 sm:px-6 py-1.5 rounded-full cursor-pointer transition ${
+                  role === "admin"
+                    ? "bg-white text-black shadow"
+                    : "bg-transparent text-gray-700"
+                }`}
+              >
                 <img src={assets.admin} alt="Admin" className="w-5" />
                 <p className="text-sm sm:text-base">Admin</p>
               </div>
 
-              <div 
+              <div
                 onClick={() => setRole("sub-admin")}
-                className= {`flex items-center gap-2 px-4 sm:px-6 py-1.5 rounded-full cursor-pointer transition ${
+                className={`flex items-center gap-2 px-4 sm:px-6 py-1.5 rounded-full cursor-pointer transition ${
                   role === "sub-admin"
-                  ? "bg-white text-black shadow"
-                  : "bg-transparent text-gray-700"
-                }`}>
+                    ? "bg-white text-black shadow"
+                    : "bg-transparent text-gray-700"
+                }`}
+              >
                 <img src={assets.sub_admin} alt="Sub-Admin" className="w-5" />
                 <p className="text-sm sm:text-base">Sub-Admin</p>
-                </div>
-
+              </div>
             </div>
 
             {/* Form */}

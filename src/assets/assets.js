@@ -13,6 +13,8 @@ import upload from "./upload.svg";
 import user from "./user.svg";
 import banner from "./banner.png";
 import down_icon from "./down-icon.svg"
+import upload_right from "./upload-right.svg"
+
 
 export const assets = {
   admin,
@@ -30,6 +32,7 @@ export const assets = {
   user,
   banner,
   down_icon,
+  upload_right
 };
 
 export const eventData = [
