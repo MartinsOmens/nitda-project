@@ -1,0 +1,243 @@
+ manage-event
+
+ import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Edit, Trash2, LogOut, Calendar, PlusCircle, Users } from "lucide-react";
+
+export default function AdminDashboard() {
+  const events = [
+    {
+      title: "AI & Machine Learning Workshop",
+      date: "2025-11-15",
+      location: "NITDA Innovation Hub",
+      registered: "32/50",
+      status: "Open",
+    },
+    {
+      title: "Web Development Bootcamp",
+      date: "2025-11-22",
+      location: "NITDA Innovation Hub",
+      registered: "15/40",
+      status: "Open",
+    },
+    {
+      title: "Cybersecurity Essentials",
+      date: "2025-12-05",
+      location: "NITDA Innovation Hub",
+      registered: "28/35",
+      status: "Open",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="flex justify-between items-center p-6 border-b bg-white">
+        <div>
+          <h1 className="text-2xl font-semibold text-gray-800">Admin Dashboard</h1>
+          <p className="text-gray-500 text-sm">
+            Manage events, attendance, and sub-admin requests
+          </p>
+        </div>
+        <Button variant="outline" className="flex items-center gap-2">
+          <LogOut size={18} /> Logout
+        </Button>
+      </header>
+
+      {/* Navigation Tabs */}
+      <div className="flex flex-wrap justify-center gap-2 bg-white py-4 shadow-sm">
+        <Button className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-2">
+          <PlusCircle size={18} /> Create Event
+        </Button>
+        <Button className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-2">
+          <Calendar size={18} /> Manage Events
+        </Button>
+        <Button className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-2">
+          <Users size={18} /> Attendance
+        </Button>
+        <Button className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-2">
+          <Users size={18} /> Manage Sub-Admin R
+        </Button>
+      </div>
+
+      {/* Manage Events Table */}
+      <main className="max-w-6xl mx-auto mt-10 p-4">
+        <Card className="shadow-md">
+          <CardContent>
+            <h2 className="text-lg font-semibold mb-4">Manage Events</h2>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm text-left border-collapse">
+                <thead>
+                  <tr className="bg-gray-100 text-gray-700">
+                    <th className="p-3 font-medium">Event Title</th>
+                    <th className="p-3 font-medium">Date</th>
+                    <th className="p-3 font-medium">Location</th>
+                    <th className="p-3 font-medium">Registered</th>
+                    <th className="p-3 font-medium">Status</th>
+                    <th className="p-3 font-medium text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {events.map((event, i) => (
+                    <tr key={i} className="border-b hover:bg-gray-50">
+                      <td className="p-3">{event.title}</td>
+                      <td className="p-3">{event.date}</td>
+                      <td className="p-3">{event.location}</td>
+                      <td className="p-3">{event.registered}</td>
+                      <td className="p-3">
+                        <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs">
+                          {event.status}
+                        </span>
+                      </td>
+                      <td className="p-3 flex justify-center gap-3">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="border-gray-300 hover:bg-gray-100"
+                        >
+                          <Edit size={16} />
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="border-red-300 hover:bg-red-100"
+                        >
+                          <Trash2 size={16} className="text-red-500" />
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </CardContent>
+        </Card>
+      </main>
+    </div>
+  );
+}
+
+
+
+ 
+
+<!------- ADMIN DASHBOARD CODE BASE -->
+import { Link, Outlet, useLocation } from "react-router-dom";
+
+export default function AdminDashboard() {
+  const location = useLocation();
+
+  return (
+    <div className="p-6 bg-gray-50 min-h-screen">
+      <h1 className="text-3xl font-bold mb-2">Admin Dashboard</h1>
+      <p className="text-gray-600 mb-6">
+        Manage events, attendance, and sub-admin requests
+      </p>
+
+      {/* Navigation Tabs */}
+      <div className="flex space-x-4 mb-8">
+        <Link
+          to="/admin/create-event"
+          className={`px-4 py-2 rounded-full ${
+            location.pathname.includes("create-event")
+              ? "bg-purple-600 text-white"
+              : "bg-gray-200 text-gray-800"
+          }`}
+        >
+          + Create Event
+        </Link>
+
+        <Link
+          to="/admin/manage-events"
+          className={`px-4 py-2 rounded-full ${
+            location.pathname.includes("manage-events")
+              ? "bg-purple-600 text-white"
+              : "bg-gray-200 text-gray-800"
+          }`}
+        >
+          📅 Manage Events
+        </Link>
+
+        <Link
+          to="/admin/attendance"
+          className={`px-4 py-2 rounded-full ${
+            location.pathname.includes("attendance")
+              ? "bg-purple-600 text-white"
+              : "bg-gray-200 text-gray-800"
+          }`}
+        >
+          🧾 Attendance
+        </Link>
+
+        <Link
+          to="/admin/manage-sub-admins"
+          className={`px-4 py-2 rounded-full ${
+            location.pathname.includes("manage-sub-admins")
+              ? "bg-purple-600 text-white"
+              : "bg-gray-200 text-gray-800"
+          }`}
+        >
+          👥 Manage Sub-Admins
+        </Link>
+      </div>
+
+      {/* Page content goes here */}
+      <div className="bg-white p-6 rounded-2xl shadow">
+        <Outlet />
+      </div>
+    </div>
+  );
+}
+
+
+<!------- MANAGE EVENT ------>
+
+import React from "react";
+
+export default function ManageEvents() {
+  const events = [
+    { title: "AI & Machine Learning Workshop", date: "2025-11-15", location: "NITDA Innovation Hub", registered: "32/50", status: "Open" },
+    { title: "Web Development Bootcamp", date: "2025-11-22", location: "NITDA Innovation Hub", registered: "15/40", status: "Open" },
+    { title: "Cybersecurity Essentials", date: "2025-12-05", location: "NITDA Innovation Hub", registered: "28/35", status: "Open" },
+  ];
+
+  return (
+    <div>
+      <h2 className="text-xl font-semibold mb-4">Manage Events</h2>
+      <table className="w-full border-collapse border border-gray-200 text-left">
+        <thead className="bg-gray-100">
+          <tr>
+            <th className="p-3 border-b">Event Title</th>
+            <th className="p-3 border-b">Date</th>
+            <th className="p-3 border-b">Location</th>
+            <th className="p-3 border-b">Registered</th>
+            <th className="p-3 border-b">Status</th>
+            <th className="p-3 border-b">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {events.map((event, i) => (
+            <tr key={i} className="hover:bg-gray-50">
+              <td className="p-3 border-b">{event.title}</td>
+              <td className="p-3 border-b">{event.date}</td>
+              <td className="p-3 border-b">{event.location}</td>
+              <td className="p-3 border-b">{event.registered}</td>
+              <td className="p-3 border-b">
+                <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-sm">
+                  {event.status}
+                </span>
+              </td>
+              <td className="p-3 border-b flex gap-2">
+                <button className="p-2 bg-gray-200 rounded hover:bg-gray-300">✏️</button>
+                <button className="p-2 bg-red-200 text-red-800 rounded hover:bg-red-300">🗑️</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+
