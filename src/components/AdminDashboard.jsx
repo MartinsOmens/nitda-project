@@ -12,7 +12,9 @@ export default function AdminDashboard() {
                         <p>Manage events, attendance, and sub-admin requests</p>
                     </div>
 
-                    <div></div>
+                    <div>
+                        <h1>Admin Dashboard</h1>
+                    </div>
                 </div>
             </div>
         </>
