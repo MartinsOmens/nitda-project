@@ -32,7 +32,7 @@ const ManageEvent = () => {
       {/* -----Event Table Section */}
 
       <div className="overflow-x-auto rounded-md border border-gray-300">
-        <table className="min-w-full overflow-hidden ">
+        <table className="min-w-full overflow-hidden">
           {/* ----Table Head ------*/}
           <thead className=" text-left text-gray-600 text-sm divide-y divide-gray-200">
             <tr className="border-b border-gray-200">
@@ -44,7 +44,7 @@ const ManageEvent = () => {
               <th className="px-6 py-3 font-medium">Actions</th>
             </tr>
           </thead>
-            {/* ----Table CContents------*/}
+            {/* ----Table Contents------*/}
           <tbody className="divide-y divide-gray-200 text-gray-700">
             {events.map((event, idx) => (
               <tr key={idx}>
