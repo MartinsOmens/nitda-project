@@ -65,7 +65,7 @@ export default function AdminDashboard() {
       </nav>
 
       {/* Main Content */}
-      <main className="w-full max-w-[1200px] mx-auto bg-white rounded shadow px-12 py-6">
+      <main className="w-full max-w-[1200px] mx-auto bg-white rounded shadow px-7 py-6">
         <Outlet />
       </main>
     </div>
