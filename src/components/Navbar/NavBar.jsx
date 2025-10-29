@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { assets } from "../assets/assets";
+import { assets } from "../../assets/assets";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -7,7 +8,6 @@ export default function NavBar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        
         {/* Left: Logo & Title */}
         <div className="flex items-center gap-3">
           <img
@@ -22,12 +22,19 @@ export default function NavBar() {
 
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <button className="bg-gray-100 text-gray-800 font-medium py-1.5 px-5 rounded-md hover:bg-gray-200 transition-colors">
+          <Link
+            to="/event-registration"
+            className="bg-gray-100 text-gray-800 font-medium py-1.5 px-5 rounded-md hover:bg-gray-200 transition-colors"
+          >
             Events
-          </button>
-          <button className="bg-[#7741C3] text-white font-medium py-1.5 px-5 rounded-md hover:bg-[#4c0ba5] transition-colors">
+          </Link>
+
+          <Link
+            to="/log-in"
+            className="bg-[#7741C3] text-white font-medium py-1.5 px-5 rounded-md hover:bg-[#4c0ba5] transition-colors"
+          >
             Admin Login
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}

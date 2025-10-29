@@ -1,5 +1,6 @@
-import { LogOut, Plus, Calendar, ClipboardCheck, UserPlus } from "lucide-react";
+import { LogOut, Plus, Calendar, ClipboardCheck} from "lucide-react";
 import { Link, Outlet } from "react-router-dom";
+
 
 // Reusable NavLink component
 
@@ -23,13 +24,13 @@ const LogoutButton = ({ onLogout }) => (
   </button>
 );
 
-export default function AdminDashboard() {
+export default function SubAdminDashboard() {
   // Define the navigation links
   const navLinks = [
     { to: "create-event", label: "Create Event", icon: Plus },
     { to: "manage-event", label: "Manage Event", icon: Calendar },
     { to: "attendance", label: "Attendance", icon: ClipboardCheck },
-    { to: "manage-subadmin", label: "Manage SubAdmin", icon: UserPlus },
+    
   ];
 
   const handleLogout = () => {
@@ -38,9 +39,11 @@ export default function AdminDashboard() {
   };
 
   return (
+    
     <div className="w-full mb-6">
+   
       {/* Header Section */}
-      <div className="bg-white px-6 sm:px-12 py-5 mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 rounded-md shadow">
+      <div className=" bg-white px-6 sm:px-12 py-5 mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 rounded-md shadow">
 
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl sm:text-3xl font-semibold text-gray-700">

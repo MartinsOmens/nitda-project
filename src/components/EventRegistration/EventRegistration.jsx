@@ -1,5 +1,6 @@
-import { assets } from "../assets/assets";
-import NavBar from "./NavBar";
+import React from "react";
+import { assets} from "../../assets/assets";
+import NavBar from "../Navbar/Navbar";
 
 export default function EventRegistration() {
   return (

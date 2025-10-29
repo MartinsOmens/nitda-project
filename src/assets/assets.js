@@ -1,18 +1,18 @@
-import admin from "./admin.svg";
-import arrow_left from "./arrow_left.svg";
-import calendar from "./calendar.svg";
-import goggle_icon from "./goggle-icon.svg";
-import landing_page_1 from "./landing-page-1.svg";
-import landing_page_2 from "./landing-page-2.svg";
-import landing_page_3 from "./landing-page-3.svg";
-import location from "./location.svg";
-import logo from "./logo.svg";
-import sub_admin from "./sub-admin.svg";
-import terms_icon from "./terms-icon.svg";
-import upload from "./upload.svg";
-import user from "./user.svg";
-import banner from "./banner.png";
-import down_icon from "./down-icon.svg"
+import admin from "@/assets/images/admin.svg";
+import arrow_left from "@/assets/images/arrow_left.svg";
+import calendar from "@/assets/images/calendar.svg";
+import goggle_icon from "@/assets/images/goggle-icon.svg";
+import landing_page_1 from "@/assets/images/landing-page-1.svg";
+import landing_page_2 from "@/assets/images/landing-page-2.svg";
+import landing_page_3 from "@/assets/images/landing-page-3.svg";
+import location from "@/assets/images/location.svg";
+import logo from "@/assets/images/logo.svg";
+import sub_admin from "@/assets/images/sub-admin.svg";
+import terms_icon from "@/assets/images/terms-icon.svg";
+import upload from "@/assets/images/upload.svg";
+import user from "@/assets/images/user.svg";
+import banner from "@/assets/images/banner.png";
+import down_icon from "@/assets/images/down-icon.svg";
 
 export const assets = {
   admin,
@@ -40,24 +40,24 @@ export const eventData = [
     date: "November 15, 2025",
     location: "NITDA Innovation Hub",
     registered: "32/50 registered",
-    btnText: "Register for Event"
+    btnText: "Register for Event",
   },
-   {
+  {
     img: landing_page_2,
     title: "Web Development Bootcamp",
-    desc: "Intensive bootcamp covering modern web development technologies including React, Node.js, and more..",
+    desc: "Intensive bootcamp covering modern web development technologies including React, Node.js, and more.",
     date: "November 22, 2025",
     location: "NITDA Innovation Hub",
     registered: "15/40 registered",
-    btnText: "Register for Event"
+    btnText: "Register for Event",
   },
-   {
+  {
     img: landing_page_3,
     title: "Cybersecurity Essentials",
     desc: "Understand cybersecurity threats, best practices, and participate in hands-on security testing workshops.",
     date: "December 5, 2025",
     location: "NITDA Innovation Hub",
     registered: "28/35 registered",
-    btnText: "Register for Event"
+    btnText: "Register for Event",
   },
 ];

@@ -1,6 +1,7 @@
-import NavBar from "./NavBar";
-import banner from "../assets/banner.png";
-import { assets, eventData } from "../assets/assets";
+import banner from "@/assets/images/banner.png";
+import { assets, eventData } from "@/assets/assets";
+import { Link } from "react-router-dom";
+import NavBar from "../Navbar/Navbar";
 
 export default function Home() {
   return (
@@ -20,12 +21,17 @@ export default function Home() {
               Welcome to NIHUB Events
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-8 leading-relaxed">
-              Discover and register for exciting tech events, workshops, and bootcamps hosted by NITDA. 
-              Enhance your skills and connect with fellow tech enthusiasts.
+              Discover and register for exciting tech events, workshops, and
+              bootcamps hosted by NITDA. Enhance your skills and connect with
+              fellow tech enthusiasts.
             </p>
-            <button className="bg-[#270557] px-6 py-2 sm:py-3 hover:bg-[#3a0785] cursor-pointer rounded-md font-semibold transition-all duration-300 text-sm sm:text-base">
+
+            <Link
+              to="/event-registration"
+              className="inline-block mr-4 bg-[#7741C3] px-6 py-2 sm:py-3 hover:bg-[#5e2fa3] cursor-pointer rounded-md font-semibold transition-all duration-300 text-sm sm:text-base"
+            >
               Explore Events
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -67,15 +73,27 @@ export default function Home() {
 
                     <div className="flex flex-col gap-2 text-gray-700 text-sm sm:text-base">
                       <div className="flex items-center gap-2">
-                        <img src={assets.calendar} alt="calendar" className="w-4 sm:w-5" />
+                        <img
+                          src={assets.calendar}
+                          alt="calendar"
+                          className="w-4 sm:w-5"
+                        />
                         <p>{item.date}</p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <img src={assets.location} alt="location" className="w-4 sm:w-5" />
+                        <img
+                          src={assets.location}
+                          alt="location"
+                          className="w-4 sm:w-5"
+                        />
                         <p>{item.location}</p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <img src={assets.user} alt="user" className="w-4 sm:w-5" />
+                        <img
+                          src={assets.user}
+                          alt="user"
+                          className="w-4 sm:w-5"
+                        />
                         <p>{item.registered}</p>
                       </div>
                     </div>
