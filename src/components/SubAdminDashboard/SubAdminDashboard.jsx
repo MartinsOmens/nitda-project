@@ -1,12 +1,12 @@
 import { LogOut, Plus, Calendar, ClipboardCheck} from "lucide-react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 
 // Reusable NavLink component
 
 const NavLinkButton = ({ to, label, Icon }) => (
   <Link
-    to={to}
+    to={`/subadmin/${to}`}
     className="w-full flex items-center text-center gap-2 bg-transparent text-white px-5 py-1.5 rounded-full cursor-pointer hover:bg-white hover:text-black"
   >
     <Icon className="w-5 h-5" />
@@ -25,17 +25,20 @@ const LogoutButton = ({ onLogout }) => (
 );
 
 export default function SubAdminDashboard() {
+
+  const navigate = useNavigate();
   // Define the navigation links
   const navLinks = [
-    { to: "create-event", label: "Create Event", icon: Plus },
-    { to: "manage-event", label: "Manage Event", icon: Calendar },
-    { to: "attendance", label: "Attendance", icon: ClipboardCheck },
+    { to: "sub-create-event", label: "Create Event", icon: Plus },
+    { to: "sub-manage-event", label: "Manage Event", icon: Calendar },
+    { to: "sub-attendance", label: "Take Attendance", icon: Calendar },
     
   ];
 
   const handleLogout = () => {
     // Your logout logic goes here
     console.log("Logged out");
+    navigate("/log-in"); // redirects to login page
   };
 
   return (
@@ -47,7 +50,7 @@ export default function SubAdminDashboard() {
 
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl sm:text-3xl font-semibold text-gray-700">
-            Admin Dashboard
+            Sub-Admin Dashboard
           </h2>
           <p className="text-sm text-gray-600">
             Manage events, attendance, and sub-admin requests

@@ -1,12 +1,12 @@
 import { LogOut, Plus, Calendar, ClipboardCheck, UserPlus } from "lucide-react";
-import { Link, Outlet } from "react-router-dom";
 
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 // Reusable NavLink component
 
 const NavLinkButton = ({ to, label, Icon }) => (
   <Link
-    to={`/admin/${to}`} 
+    to={`/admin/${to}`}
     className="w-full flex items-center text-center gap-2 bg-transparent text-white px-5 py-1.5 rounded-full cursor-pointer hover:bg-white hover:text-black"
   >
     <Icon className="w-5 h-5" />
@@ -16,7 +16,7 @@ const NavLinkButton = ({ to, label, Icon }) => (
 
 const LogoutButton = ({ onLogout }) => (
   <button
-    className="flex items-center gap-2 text-white text-lg bg-[#7741C3] px-5 py-2  rounded-md"
+    className="flex items-center gap-2 text-white text-lg bg-[#7741C3] px-5 py-2 rounded-md"
     onClick={onLogout}
   >
     <LogOut className="w-4 h-4" />
@@ -25,6 +25,8 @@ const LogoutButton = ({ onLogout }) => (
 );
 
 export default function AdminDashboard() {
+  const navigate = useNavigate();
+
   // Define the navigation links
   const navLinks = [
     { to: "create-event", label: "Create Event", icon: Plus },
@@ -34,23 +36,21 @@ export default function AdminDashboard() {
   ];
 
   const handleLogout = () => {
-    // Your logout logic goes here
+    // 🧠 Optional: clear local storage, auth tokens, etc.
     console.log("Logged out");
+    navigate("/log-in"); // 👈 redirects to login page
   };
 
   return (
-    
     <div className="w-full mb-6">
-   
       {/* Header Section */}
       <div className="bg-white px-6 sm:px-12 py-5 mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 rounded-md shadow">
-
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl sm:text-3xl font-semibold text-gray-700">
             Admin Dashboard
           </h2>
           <p className="text-sm text-gray-600">
-            Manage events, attendance, and sub-admin requests
+            Manage events, attendance and admin requests
           </p>
         </div>
 
@@ -58,7 +58,6 @@ export default function AdminDashboard() {
         <div className="mt-3 sm:mt-0 w-full sm:w-auto">
           <LogoutButton onLogout={handleLogout} />
         </div>
-
       </div>
 
       {/* Navigation Links */}
