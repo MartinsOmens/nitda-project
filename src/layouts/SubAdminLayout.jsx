@@ -1,10 +1,9 @@
-
 import { Outlet } from "react-router-dom";
 
 export default function SubAdminLayout() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className=" bg-gray-100">
+    <div className="bg-gray-100 min-h-screen">
+      <main>
         <Outlet /> {/* This is where nested routes render */}
       </main>
     </div>

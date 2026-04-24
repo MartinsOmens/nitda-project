@@ -1,11 +1,11 @@
 import React from "react";
 import { assets} from "../../assets/assets";
-import NavBar from "../Navbar/Navbar";
+
 
 export default function EventRegistration() {
   return (
     <>
-      <NavBar />
+     
       <div className="h-screen bg-[#F9FAFB] flex items-center justify-center overflow-hidden">
         <div className="flex flex-col gap-5 items-start">
         {/* Back Navigation */}

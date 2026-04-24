@@ -14,6 +14,10 @@ import user from "@/assets/images/user.svg";
 import banner from "@/assets/images/banner.png";
 import down_icon from "@/assets/images/down-icon.svg";
 
+import twitter_icon from "../assets/images/twitter_icon.png";
+import facebook_icon from "../assets/images/facebook_icon.png";
+import goggleplus_icon from "../assets/images/googleplus_icon.png";
+
 export const assets = {
   admin,
   arrow_left,
@@ -30,6 +34,10 @@ export const assets = {
   user,
   banner,
   down_icon,
+
+  twitter_icon,
+  facebook_icon,
+  goggleplus_icon,
 };
 
 export const eventData = [

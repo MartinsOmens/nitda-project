@@ -3,20 +3,20 @@ import { LogOut, Plus, Calendar, ClipboardCheck, UserPlus } from "lucide-react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 // Reusable NavLink component
-
 const NavLinkButton = ({ to, label, Icon }) => (
   <Link
     to={`/admin/${to}`}
-    className="w-full flex items-center text-center gap-2 bg-transparent text-white px-5 py-1.5 rounded-full cursor-pointer hover:bg-white hover:text-black"
+    className="flex items-center justify-center gap-2 text-white px-4 py-2 rounded-full cursor-pointer hover:bg-white hover:text-black transition whitespace-nowrap text-sm sm:text-base"
   >
-    <Icon className="w-5 h-5" />
+    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
     <span>{label}</span>
   </Link>
 );
 
+// Logout Button
 const LogoutButton = ({ onLogout }) => (
   <button
-    className="flex items-center gap-2 text-white text-lg bg-[#7741C3] px-5 py-2 rounded-md"
+    className="flex items-center gap-2 text-white text-sm sm:text-base bg-[#7741C3] px-4 sm:px-5 py-2 rounded-md hover:bg-[#5a2d8f] transition"
     onClick={onLogout}
   >
     <LogOut className="w-4 h-4" />
@@ -27,7 +27,6 @@ const LogoutButton = ({ onLogout }) => (
 export default function AdminDashboard() {
   const navigate = useNavigate();
 
-  // Define the navigation links
   const navLinks = [
     { to: "create-event", label: "Create Event", icon: Plus },
     { to: "manage-event", label: "Manage Event", icon: Calendar },
@@ -36,15 +35,14 @@ export default function AdminDashboard() {
   ];
 
   const handleLogout = () => {
-    // 🧠 Optional: clear local storage, auth tokens, etc.
-    console.log("Logged out");
-    navigate("/log-in"); // 👈 redirects to login page
+    localStorage.removeItem("user");
+    navigate("/log-in");
   };
 
   return (
-    <div className="w-full mb-6">
-      {/* Header Section */}
-      <div className="bg-white px-6 sm:px-12 py-5 mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 rounded-md shadow">
+    <div className="w-full pt-5 mb-5 bg-gray-50 min-h-screen">
+      {/* Header */}
+      <div className="max-w-[1200px] px-4 sm:px-6 lg:px-8 py-5 mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl sm:text-3xl font-semibold text-gray-700">
             Admin Dashboard
@@ -54,21 +52,20 @@ export default function AdminDashboard() {
           </p>
         </div>
 
-        {/* Logout Button */}
-        <div className="mt-3 sm:mt-0 w-full sm:w-auto">
+        <div className="w-full sm:w-auto">
           <LogoutButton onLogout={handleLogout} />
         </div>
       </div>
 
-      {/* Navigation Links */}
-      <nav className="w-full max-w-[1200px] flex items-center mx-auto text-center bg-[#7741C3] my-10 px-5 py-2 md:rounded-full flex-wrap sm:flex-nowrap">
+      {/* Navigation */}
+      <nav className="w-full max-w-[1200px] mx-auto bg-[#7741C3] my-6 px-4 py-3 rounded-xl sm:rounded-full flex md:justify-between gap-2 overflow-x-auto sm:overflow-visible sm:flex-wrap sm:justify-center">
         {navLinks.map(({ to, label, icon: Icon }) => (
           <NavLinkButton key={to} to={to} label={label} Icon={Icon} />
         ))}
       </nav>
 
       {/* Main Content */}
-      <main className="w-full max-w-[1200px] mx-auto bg-white rounded shadow px-7 py-6">
+      <main className="w-full max-w-[1200px] mx-auto bg-white rounded shadow px-4 sm:px-7 py-5 sm:py-6">
         <Outlet />
       </main>
     </div>

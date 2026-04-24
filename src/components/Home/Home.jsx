@@ -1,13 +1,20 @@
 import banner from "@/assets/images/banner.png";
 import { assets, eventData } from "@/assets/assets";
-import { Link } from "react-router-dom";
-import NavBar from "../Navbar/Navbar";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Home() {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.replace("#", ""));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
   return (
     <>
-      <NavBar />
-
       {/* Hero Section */}
       <div className="relative">
         <div
@@ -25,18 +32,14 @@ export default function Home() {
               bootcamps hosted by NITDA. Enhance your skills and connect with
               fellow tech enthusiasts.
             </p>
-
-            <Link
-              to="/event-registration"
-              className="inline-block mr-4 bg-[#7741C3] px-6 py-2 sm:py-3 hover:bg-[#5e2fa3] cursor-pointer rounded-md font-semibold transition-all duration-300 text-sm sm:text-base"
-            >
-              Explore Events
-            </Link>
           </div>
         </div>
 
         {/* Events Section */}
-        <div className="relative -mt-16 sm:-mt-24 md:-mt-28 w-[95%] sm:w-[90%] md:w-[80%] lg:w-[70%] mx-auto bg-[#F9FAFB] shadow-xl rounded-2xl p-6 sm:p-8 md:p-10 z-20 mb-12 sm:mb-16 md:mb-24">
+        <div
+          className="relative -mt-16 sm:-mt-24 md:-mt-28 w-[95%] sm:w-[90%] md:w-[80%] lg:w-[70%] mx-auto bg-[#F9FAFB] shadow-xl rounded-2xl p-6 sm:p-8 md:p-10 z-20 mb-12 sm:mb-16 md:mb-24"
+          id="events"
+        >
           <div className="text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
               Available Events
